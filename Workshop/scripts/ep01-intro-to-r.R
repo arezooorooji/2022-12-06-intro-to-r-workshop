@@ -115,7 +115,7 @@ weight_lb          # and so does typing the name of the object
 # There are 2 and a bit pounds in a kilogram 
 #
 # 2.20462 * weight_lb
-# weight_lb <- 57.5
+weight_lb <- 57.5
 # weight_kg <- 2.20462 * weight_lb
 #
 
@@ -125,11 +125,11 @@ weight_lb          # and so does typing the name of the object
 # 
 # What are the values after each statement in the following?
 # 
-# mass <- 47.5            # mass is: 
-# age  <- 122             # age is:
-# mass <- mass * 2.0      # mass is:
-# age  <- age - 20        # age is:
-# mass_index <- mass/age  # mass_index is: 
+mass <- 47.5            # mass is: 
+age  <- 122             # age is:
+mass <- mass * 2.0      # mass is:
+age  <- age - 20        # age is:
+mass_index <- mass/age  # mass_index is: 
 #
 # How do we do we know if our answers are correct ? 
 # [Hint: <highlight> [ALT][ENTER]
