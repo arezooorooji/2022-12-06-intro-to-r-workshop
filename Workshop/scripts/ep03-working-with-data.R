@@ -40,7 +40,8 @@ download.file(url = "https://ndownloader.figshare.com/files/2292169",
 
 
 # Read some data from a CSV file
-surveys <- read.csv("data_raw/portal_data_joined.csv")
+s <- read.csv("data_raw/portal_data_joined.csv")
+library(dplyr)
 
 # lets remind ourselves what the dataframe looks like with str(), view() etc ...
 
@@ -66,6 +67,8 @@ surveys <- read.csv("data_raw/portal_data_joined.csv")
 #
 # select() - subset of columns (variables)
 #
+select(s,plot_id,species_id)
+select(s,-record_id,-month)
 
 # include particular columns: eg plot_id, species_id and weight
 
@@ -76,7 +79,8 @@ surveys <- read.csv("data_raw/portal_data_joined.csv")
 #
 # filter() - subset of rows (observations)
 #
-
+filter(s,year==1995)
+filter(s,weight>5)%>%select(sex,weight)
 # all rows where year is 1995
 
 # oldest year obversation rows (hint max(year, ))
@@ -136,7 +140,8 @@ surveys <- read.csv("data_raw/portal_data_joined.csv")
 # The hindfoot_cm column, should have no NA's and all values need to be less than 3.
 #
 # Hint: think about how the commands should be ordered to produce this data frame!
-
+f<-s%>%
+  
 
 
 #
@@ -213,7 +218,8 @@ cars_wide <- data.frame (
   kia   = c(3, 95),
   mazda = c(6,12)
 ) 
-  
+ 
+cars_wide%>%pivot_longer(names_to=group,values_to=value,col=-day)
 
 # Same information represented in a "Long" dataframe
 #
@@ -236,6 +242,8 @@ surveys_long <- surveys %>%
   filter(!is.na(weight)) %>%
   group_by(plot_id, genus) %>%
   summarize(mean_weight = mean(weight))
+
+cars_wide%>%pivot_longer(names_to="group",values_to="value",col=-day)
 
 # and reshape wider
 
